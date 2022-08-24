@@ -1,0 +1,38 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+
+buffDrunkOnCornDesc,buffs,Buff,,,You Too Can Be One with the corn.\n+50% melee and ranged damage.\n+75% stamina recovery\n80% Stun Resistance\n+65% damage resistance\n+25 health.\n+50% harvest amount\n+50% salvage amount \n100% inventory unlock\n+30% buying and selling.
+buffDrunkOnCornName,buffs,Buff,,,One With The Corn
+buffDrunkOnCornTooltip,buffs,Buff,,,You are now one with the corn. \n You are also Plastered \n Good Luck With That.
+
+cornLickerName,items,Item,,,Cornl3reads Homegrown Shine
+cornLickerDesc,buffs,Buff,,,Become one with the corn.\n+50% melee and ranged damage.\n+75% stamina recovery\n80% Stun Resistance\n+65% damage resistance\n+25 health.\n+50% harvest amount\n+50% salvage amount \n100% inventory unlock\n+30% buying and selling.\n+30%run speed\nGo Get Ya Corn On!
+
+
+TwitchAction_SpawnWolfFriendCommand,twitch,Actions,,,#spawn_sidekick
+TwitchAction_TwitchAction_SpawnWolfFriend,spawn_sidekick
+TwitchAction_SpawnWolfFriendDesc,Spawns a sidekick.
+
+TwitchAction_SpawnBigWolfFriendCommand,twitch,Actions,,,#spawn_bigsidekick
+TwitchAction_SpawnBigWolfFriend,twitch,Actions,,,spawn_bigsidekick
+TwitchAction_SpawnBigWolfFriendDesc,twitch,Actions,,,Spawns a big sidekick.
+
+TwitchAction_SpawnDeadBearFriendCommand,#spawn_deadsidekick
+TwitchAction_SpawnDeadBearFriend,twitch,Actions,,,spawn_deadsidekick
+TwitchAction_SpawnDeadBearFriendDesc,twitch,Actions,,,Spawns a dead sidekick.
+
+TwitchAction_SpawnSuperFriendCommand,twitch,Actions,,,#spawn_superfriend
+TwitchAction_SpawnDeadBearFriend,twitch,Actions,,,spawn_superfriend
+TwitchAction_SpawnDeadBearFriendDesc,twitch,Actions,,,Spawns a super sidekick.
+
+TwitchAction_ThunderdomeCommand,twitch,Actions,,,#thunderdome
+TwitchAction_Thunderdome,twitch,Actions,,,thunderdome
+TwitchAction_Thunderdome,twitch,Actions,,,Thunderdome with friends.
+
+noteHeyThereDesc,items,Item,,, Hey! Thanks for reading this. First you should take some time to gather your thoughts. You were provided some supplies in the starter bundle on your hotbar to get you going in a hurry. Open it up but don't drink the CornLicker until you are ready to die. You will have 3 minutes to prepare after drinking it so BE CAREFUL. Make sure to check your inventory often for new items. Good Luck-Cornl3read
+
+
+
+
+
+
+
