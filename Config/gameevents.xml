@@ -1,79 +1,8 @@
 <configs>
   <set xpath="/gameevents/@max_entities">100</set>
   <append xpath="/gameevents">
-    <!-- ||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#|| -->
-    <!-- ||$#$#$#!!!!!!!!!! Player Death Sequence !!!!!!!!!$#$#$#|| -->
-    <!-- ||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#|| -->
-    <action_sequence name="game_on_respawn">
-      <!-- Pizza Waffles -->
-      <property name="allow_user_trigger" value="false" />
-      <property name="action_type" value="Game" />
-      <!-- Phase 1 | Add Party To Group: "Hoomans" -->
-        <action class="AddPartyToGroup">
-          <property name="phase" value="1" />
-	      <property name="group_name" value="CornLs" />
-          <property name="twitch_negative" value="true" />
-	    </action>
-      <!-- Phase 2 | Let the group know in a big way -->
-        <action class="BeltTooltip">
-	      <property name="phase" value="2" />
-          <property name="text" value="Shucks, We Lost One. I wonder who it was?" />
-          <property name="target_group" value="CornLs" />
-          <!-- This should do -->
-          <property name="sound" value="twitch_kaboom" />
-		</action>
-      <!-- Phase 3  | Give things a Second To Clear Up !!!! May need Balancing -->
-        <action class="Delay">
-          <property name="phase" value="3" />
-          <property name="time" value="2" />
-        </action>
-      <!-- Phase 4 | Tell them they should celebrate-->
-        <action class="BeltTooltip">
-		  <property name="phase" value="4" />
-          <property name="text" value="Three minutes of Big Heads and Dancing coming up!!" />
-          <property name="target_group" value="CornLs" />
-          <property name="sound" value="twitch_good_action,twitch_vote_horde_success" />
-		</action>
-      <!-- Phase 5  | Give things a Second To Clear Up !!!! May need Balancing -->
-        <action class="Delay">
-          <property name="phase" value="5" />
-          <property name="time" value="3" />
-        </action>
-      <!-- Phase 6 | Fire BigHead and Dancing for Three Minutes -->
-        <action class="SetEventFlag">
-          <property name="phase" value="6" />
-          <property name="event_flag" value="BigHead" />
-          <property name="enable" value="true" />
-          <property name="min_duration" value="180" />
-          <property name="max_duration" value="180" />
-        </action>
-        <action class="SetEventFlag">
-          <property name="phase" value="6" />
-          <property name="event_flag" value="Dancing" />
-          <property name="enable" value="true" />
-          <property name="min_duration" value="180" />
-          <property name="max_duration" value="180" />
-        </action>
-      <!-- Phase 7 | Give things a Second To Clear Up !!!! May need Balancing-->
-        <action class="Delay">
-          <property name="phase" value="7" />
-          <property name="time" value="180" />
-        </action>
-      <!-- Phase 8 | Celebration over Notice-->
-        <action class="BeltTooltip">
-		  <property name="phase" value="8" />
-          <property name="text" value="Celebration over, Back to surviving slackers." />
-          <property name="target_group" value="CornLs" />
-		  <property name="sound" value="twitch_good_action,quest_restore_power_complete" />
-        </action>
-      <!-- Phase 9 | Wait For It.... Wait For It....-->
-        <action class="Delay">
-          <property name="phase" value="9" />
-          <property name="time" value="2" />
-        </action>
-      <!-- The Day I Let A Pancake Beat a Waffle Is The Day That I Banana Pudding? -->
-	  </action_sequence>
 
+	<!-- The Day I Let A Pancake Beat a Waffle Is The Day That I Banana Pudding? -->
     <!-- ||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#|| -->
     <!-- ||$#$#$#!!!!!!!!!!!!! Begin Sidekicks !!!!!!!!!!!!$#$#$#|| -->
     <!-- ||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#|| -->
@@ -101,11 +30,29 @@
 	  </action_sequence>
 
 
+	<!-- ||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#|| -->
+    <!-- ||$#$#$#!!!!!!!!!!!!!! Begin Mad Xp !!!!!!!!!!!!!!$#$#$#|| -->
     <!-- ||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#|| -->
+	  <action_sequence name="mad_Xp">
+	<!-- Phase 1 - ADD XP and Wait for It -->
+	    <action class="AddXP">
+		  <property name="phase" value="1" />
+		  <property name="xp_amount" value="5000000" />
+	    </action>
+	<!-- Phase 2 -  Let them know they just got some XP and Points, They Better Hurry -->
+	    <action class="BeltTooltip">
+		  <property name="phase" value="2" />
+		  <property name="text" value="You Have 3 Minutes To Assign Your Skill Points. Get Cracking!" />
+		  <property name="sound" value="twitch_kaboom" />
+		  <property name="sound" value="twitch_reverse" />
+	    </action>
+	  </action_sequence>
+
+	<!-- ||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#|| -->
     <!-- ||$#$#$#!!!!!!!!!! Begin Thunderdome v2 !!!!!!!!!!$#$#$#|| -->
     <!-- ||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#||!!!!!!||$#$#$#|| -->
 
-	  <action_sequence name="mad_Xp">
+	  <action_sequence name="cornLickerEvent">
 	    <property name="refund_inactivity" value="false"/>
 		<property name="category" value="Game"/>
 	  <!-- Phase 0 - Add all players in current party to group | goodGuys -->
@@ -113,64 +60,45 @@
 		  <property name="phase" value="0" />
 		  <property name="group_name" value="goodGuys" />
 		</action>
-	  <!-- Phase 1 - ADD XP and Wait for It -->
-	    <action class="AddXP">
+	  <!-- Phase 1 -  Let them know -->
+	    <action class="BeltTooltip">
 		  <property name="phase" value="1" />
-		  <property name="xp_amount" value="5000000" />
-	    </action>
-	  <!-- Phase 2 -  Let them know they just got some XP and Points, They Better Hurry -->
-	    <action class="BeltTooltip">
-		  <property name="phase" value="2" />
-		  <property name="text" value="You Have 3 Minutes To Assign Your Skill Points. Get Cracking!" />
-		  <property name="sound" value="twitch_kaboom" />
-		  <property name="sound" value="twitch_reverse" />
-	    </action>
-	  <!-- Phase 3 - Wait for It -->
-	    <action class="Delay">
-		  <property name="phase" value="3" />
-		  <property name="time" value="180" />
-	    </action>
-	  <!-- Phase 4 -  Let them know -->
-	    <action class="BeltTooltip">
-		  <property name="phase" value="4" />
 		  <property name="text" value="Let The Cornl3read Begin" />
 		  <property name="sound" value="twitch_kaboom" />
 		  <property name="sound" value="twitch_reverse" />
 	    </action>
-	  <!-- Phase 5 - Wait for It -->
+	  <!-- Phase 2 - Wait for It -->
 	    <action class="Delay">
-		  <property name="phase" value="5" />
-		  <property name="time" value="4" />
+		  <property name="phase" value="2" />
+		  <property name="time" value="3" />
 	    </action>
-	  <!-- Phase 6 - Bye Felecia -->
+	  <!-- Phase 3 - Bye Felecia -->
 		<action class="RandomTeleport">
-		  <property name="phase" value="6" />
+		  <property name="phase" value="3" />
 		  <property name="target_group" value="goodGuys" />
 		  <property name="min_distance" value="600" /><!-- will be changed later to last phase -->
 		  <property name="max_distance" value="850" />
 		</action>
-	  <!-- Phase 7 - Wait : 2 seconds -->
+	  <!-- Phase 4 - Wait : 2 seconds -->
 		<action class="Delay">
-		  <property name="phase" value="7" />
-		  <property name="time" value="2" />
+		  <property name="phase" value="4" />
+		  <property name="time" value="3" />
 		</action>
-	  <!-- Phase 8 - Alert so that they know it's coming -->
+	  <!-- Phase 5 - Alert so that they know it's coming -->
 		<action class="PlaySound">
-		  <property name="phase" value="8" />
+		  <property name="phase" value="5" />
 		  <property name="sound" value="wolfalert" />
 		  <property name="inside_head" value="true" />
 		  <property name="target_group" value="goodGuys" />
 		</action>
-	  <!-- Phase 9 -  Let them know they just got some help. -->
+	  <!-- Phase 6 -  Let them know they just got some help. -->
 	    <action class="BeltTooltip">
-		  <property name="phase" value="9" />
+		  <property name="phase" value="6" />
 		  <property name="text" value="A wild McFocker appears to help you fight!" />
-		  <property name="sound" value="twitch_kaboom" />
-		  <property name="sound" value="twitch_reverse" />
 	    </action>
-      <!-- Phase 10 - Spawn Direwolf with Zombie only Aggro and add to group goodGuys -->
+      <!-- Phase 7 - Spawn Direwolf with Zombie only Aggro and add to group goodGuys -->
 		<action class="SpawnEntity">
-			<property name="phase" value="10" />
+			<property name="phase" value="7" />
 			<property name="min_distance" value="8" />
 			<property name="max_distance" value="12" />
 			<property name="entity_names" value="animalWolfFriend" param1="zombiename" />
@@ -178,21 +106,20 @@
 			<property name="spawn_count" value="1" />
 			<property name="party_addition" value="1" />
 		</action>
-	  <!-- Phase 11 -  Let them know. -->
+	  <!-- Phase 8 -  Let them know. -->
 	    <action class="BeltTooltip">
-		  <property name="phase" value="11" />
+		  <property name="phase" value="8" />
 		  <property name="text" value="Wave 1 - Fight!!" />
 		  <property name="sound" value="twitch_kaboom" />
-		  <property name="sound" value="twitch_reverse" />
 	    </action>
-	  <!-- Phase 12 - Wait : 1 seconds -->
+	  <!-- Phase 9 - Wait : 1 seconds -->
 		<action class="Delay">
-		  <property name="phase" value="12" />
-		  <property name="time" value="1" />
+		  <property name="phase" value="9" />
+		  <property name="time" value="2" />
 		</action>
-	  <!-- Phase 13 - First WAVE ~  ~  ~ -->
+	  <!-- Phase 10 - First WAVE ~  ~  ~ -->
 		<action class="SpawnEntity">
-			<property name="phase" value="13" />
+			<property name="phase" value="10" />
 			<property name="min_distance" value="9" />
 			<property name="max_distance" value="18" />
 			<property name="entity_names" value="zombieArlene,zombieMarlene,zombiePartyGirl,zombieNurse,zombieMoe" param1="zombiename" />
@@ -200,53 +127,52 @@
 			<property name="spawn_count" value="12" />
 			<property name="party_addition" value="1" />
 		</action>
-      <!-- Phase 14 - Wait until all zombies from wave 1 are dead -->
+      <!-- Phase 11 - Wait until all zombies from wave 1 are dead -->
 		<action class="WaitForDead">
-			<property name="phase" value="14" />
+			<property name="phase" value="11" />
 			<property name="target_group" value="badGuys" />
 			<property name="phase_on_despawn" value="52" /><!-- will be changed later to last phase -->
 			<property name="kill" value="animalWolfFriend" param1="zombiename"/>
 		</action>
-	  <!-- Phase 15 -  Let them know they just got some help. -->
+	  <!-- Phase 12 -  Let them know they just got some help. -->
 	    <action class="BeltTooltip">
-		  <property name="phase" value="15" />
+		  <property name="phase" value="12" />
 		  <property name="text" value="Yay, you won! Not..." />
-		  <property name="sound" value="twitch_vote_horde_failed" />
 	    </action>
-	  <!-- Phase 16 - Make them think they won -->
+	  <!-- Phase 13 - Make them think they won -->
 		<action class="PlaySound">
-			<property name="phase" value="16" />
+			<property name="phase" value="13" />
 			<property name="sound" value="twitch_vote_horde_failed" />
 			<property name="inside_head" value="true" />
 			<property name="target_group" value="goodGuys" />
 		</action>
-	  <!-- Phase 17 - Wait 2 Damn Seconds -->
+	  <!-- Phase 14 - Wait 2 Damn Seconds -->
 		<action class="Delay">
-			<property name="phase" value="17" />
-			<property name="time" value="5" />
+			<property name="phase" value="14" />
+			<property name="time" value="3" />
 		</action>
-	  <!-- Phase 18 - Bye Felecia -->
+	  <!-- Phase 15 - Bye Felecia -->
 		<action class="RandomTeleport">
-			<property name="phase" value="18" />
+			<property name="phase" value="15" />
 			<property name="target_group" value="goodGuys" />
 			<property name="min_distance" value="475" />
 			<property name="max_distance" value="550" />
 		</action>
-	  <!-- Phase 19 - Wait A Damn Second -->
+	  <!-- Phase 16 - Wait A Damn Second -->
 		<action class="Delay">
-			<property name="phase" value="19" />
+			<property name="phase" value="16" />
 			<property name="time" value="45" />
 		</action>
-      <!-- Phase 20 -  Let them know they just got some help. -->
+      <!-- Phase 17 -  Let them know they just got some help. -->
 	    <action class="BeltTooltip">
-		  <property name="phase" value="20" />
+		  <property name="phase" value="17" />
 		  <property name="text" value="A wild BigFocker appears to help you fight!" />
 		  <property name="sound" value="wolfalert" />
 		  <property name="sound" value="twitch_reverse" />
 	    </action>
-	  <!-- Phase 21 - Spawn fresh wolves -->
+	  <!-- Phase 18 - Spawn fresh wolves -->
 		<action class="SpawnEntity">
-			<property name="phase" value="21" />
+			<property name="phase" value="18" />
 			<property name="min_distance" value="8" />
 			<property name="max_distance" value="12" />
 			<property name="entity_names" value="animalBigWolfFriend" param1="zombiename" />
@@ -254,21 +180,20 @@
 			<property name="spawn_count" value="1" />
 			<property name="party_addition" value="1" />
 		</action>
-	  <!-- Phase 22 - Wait A Damn Second -->
+	  <!-- Phase 19 - Wait A Damn Second -->
 		<action class="Delay">
-			<property name="phase" value="22" />
+			<property name="phase" value="19" />
 			<property name="time" value="20" />
 		</action>
-      <!-- Phase 23 -  Let them know they just got some help. -->
+      <!-- Phase 20 -  Let them know. -->
 	    <action class="BeltTooltip">
-		  <property name="phase" value="23" />
+		  <property name="phase" value="20" />
 		  <property name="text" value="Wave 2 - Fight!" />
 		  <property name="sound" value="twitch_kaboom" />
-		  <property name="sound" value="twitch_reverse" />
 	    </action>
-	  <!-- Phase 24 - Wave 2 ~ ~ ~ ~ Lil harder - ferals and cops, soldiers, consists of 2 spawn waves -->
+	  <!-- Phase 21 - Wave 2 ~ ~ ~ ~ Lil harder - ferals and cops, soldiers, consists of 2 spawn waves -->
 		<action class="SpawnEntity">
-			<property name="phase" value="24" />
+			<property name="phase" value="21" />
 			<property name="min_distance" value="6" />
 			<property name="max_distance" value="12" />
 			<property name="entity_names" value="zombieArlene,zombieMarlene,zombiePartyGirl,zombieSteveFeral,
@@ -279,14 +204,14 @@
 			<property name="party_addition" value="1" />
 		</action>
 
-	  <!-- Phase 25 - Wait 25 Damn Seconds -->
+	  <!-- Phase 22 - Wait 25 Damn Seconds -->
 		<action class="Delay">
-			<property name="phase" value="25" />
+			<property name="phase" value="22" />
 			<property name="time" value="25" />
 		</action>
-      <!-- Phase 26 - Wait A Damn Second -->
+      <!-- Phase 23 - Wait A Damn Second -->
 		<action class="SpawnEntity">
-			<property name="phase" value="26" />
+			<property name="phase" value="23" />
 			<property name="min_distance" value="6" />
 			<property name="max_distance" value="12" />
 			<property name="entity_names" value="zombieArlene,zombieMarlene,zombiePartyGirl,zombieSteveFeral,
@@ -296,35 +221,28 @@
 			<property name="spawn_count" value="8" />
 			<property name="party_addition" value="1" />
 		</action>
-      <!-- Phase 27 - Wait A Damn Second -->
+      <!-- Phase 24 - Wait A Damn Second -->
 		<action class="WaitForDead">
-			<property name="phase" value="27" />
+			<property name="phase" value="24" />
 			<property name="phase_on_despawn" value="52" />
 			<property name="target_group" value="badGuys" />
 			<property name="kill" value="animalBigWolfFriend" param1="zombiename"/>
 		</action>
-	  <!-- Phase 28 -  Let them know they just got some help. -->
+	  <!-- Phase 25 -  Let them know they just got some help. -->
 	    <action class="BeltTooltip">
-		  <property name="phase" value="28" />
+		  <property name="phase" value="25" />
 		  <property name="text" value="Congrats!! You Survived wave 2. Collect Your Bounty Quickly." />
 	    </action>
-	  <!-- Phase 29 - Wait A Damn Second -->
+      <!-- Phase 26 - Wait A Damn Second -->
 		<action class="PlaySound">
-			<property name="phase" value="29" />
-			<property name="sound" value="twitch_vote_horde_success" />
-			<property name="inside_head" value="true" />
-			<property name="target_group" value="goodGuys" />
-		</action>
-      <!-- Phase 30 - Wait A Damn Second -->
-		<action class="PlaySound">
-		  <property name="phase" value="30" />
+		  <property name="phase" value="26" />
 		  <property name="sound" value="open_supply_crate,twitch_vote_horde_success" />
 		  <property name="inside_head" value="true" />
 		  <property name="target_group" value="goodGuys" />
 		</action>
-      <!-- Phase 31 - Wait A Damn Second -->
+      <!-- Phase 27 - Wait A Damn Second -->
 		<action class="SpawnContainer">
-			<property name="phase" value="31" />
+			<property name="phase" value="27" />
 			<property name="target_group" value="goodGuys" />
 			<property name="entity_names" value="TwitchAction_SupplyWeapon3,TwitchAction_SupplyWeapon4,
 			    TwitchAction_SupplyMedicine3,TwitchAction_SupplyAmmo3,TwitchAction_SupplyAmmo4" param1="cratename" />
@@ -335,45 +253,44 @@
 			<property name="spawn_from_position" value="true" />
 		</action>
 
-	  <!-- Phase 32 - Give Them Time To Get The Crates -->
+	  <!-- Phase 28 - Give Them Time To Get The Crates -->
 		<action class="Delay">
-			<property name="phase" value="32" />
+			<property name="phase" value="28" />
 			<property name="time" value="60" />
 		</action>
-      <!-- Phase 33 -  Let them know. -->
+      <!-- Phase 29 -  Let them know. -->
 	    <action class="BeltTooltip">
-		  <property name="phase" value="33" />
+		  <property name="phase" value="29" />
 		  <property name="text" value="Here We Go Again!" />
 		  <property name="sound" value="twitch_kaboom" />
-		  <property name="sound" value="twitch_reverse" />
 	    </action>
-      <!-- Phase 34 - Bye Again Felecia -->
+      <!-- Phase 30 - Bye Again Felecia -->
 		<action class="RandomTeleport">
-			<property name="phase" value="34" />
+			<property name="phase" value="30" />
 			<property name="target_group" value="goodGuys" />
 			<property name="min_distance" value="800" /><!-- will be changed later to last phase -->
 			<property name="max_distance" value="1000" />
 		</action>
-	  <!-- Phase 35 - Wait for It -->
+	  <!-- Phase 31 - Wait for It -->
 		<action class="Delay">
-			<property name="phase" value="35" />
+			<property name="phase" value="31" />
 			<property name="time" value="10" />
 		</action>
-	  <!-- Phase 36 -  Alert so that they know it's coming -->
+	  <!-- Phase 32 -  Alert so that they know it's coming -->
 		<action class="PlaySound">
-			<property name="phase" value="36" />
+			<property name="phase" value="32" />
 			<property name="sound" value="hulkalert, bearalert, twitch_kaboom" />
 			<property name="inside_head" value="true" />
 			<property name="target_group" value="goodGuys" />
 		</action>
-	  <!-- Phase 37 -  Let them know they just got some help. -->
+	  <!-- Phase 33 -  Let them know they just got some help. -->
 	    <action class="BeltTooltip">
-		  <property name="phase" value="37" />
+		  <property name="phase" value="33" />
 		  <property name="text" value="Two McFockers to help fight? That's A Little Unnerving." />
 		</action>
-	  <!--  Phase 38 - Spawn friendly wolf -->
+	  <!--  Phase 34 - Spawn friendly wolf -->
 		<action class="SpawnEntity">
-			<property name="phase" value="38" />
+			<property name="phase" value="34" />
 			<property name="min_distance" value="4" />
 			<property name="max_distance" value="5" />
 			<property name="entity_names" value="animalWolfFriend" param1="zombiename" />
@@ -381,9 +298,9 @@
 			<property name="spawn_count" value="1" />
 			<property name="party_addition" value="1" />
 		</action>
-	  <!--  Phase 39 - Spawn friendly dierwolf -->
+	  <!--  Phase 35 - Spawn friendly dierwolf -->
 		<action class="SpawnEntity">
-			<property name="phase" value="39" />
+			<property name="phase" value="35" />
 			<property name="min_distance" value="5" />
 			<property name="max_distance" value="6" />
 			<property name="entity_names" value="animalBigWolfFriend" param1="zombiename" />
@@ -391,21 +308,20 @@
 			<property name="spawn_count" value="1" />
 			<property name="party_addition" value="1" />
 		</action>
-	  <!-- Phase 40 - Wait for It -->
+	  <!-- Phase 36 - Wait for It -->
 		<action class="Delay">
-	      <property name="phase" value="40" />
+	      <property name="phase" value="36" />
 		  <property name="time" value="45" />
 		</action>
-	  <!-- Phase 41 -  Let them know they just got some help. -->
+	  <!-- Phase 37 -  Let them know they just got some help. -->
 	    <action class="BeltTooltip">
-		  <property name="phase" value="41" />
+		  <property name="phase" value="37" />
 		  <property name="text" value="Wave 3 - Fight!!!" />
 		  <property name="sound" value="twitch_kaboom" />
-		  <property name="sound" value="twitch_reverse" />
 		</action>
-	  <!-- Phase 42 - Boss Wave | Good fn Luck -->
+	  <!-- Phase 38 - Boss Wave | Good fn Luck -->
 		<action class="SpawnEntity">
-			<property name="phase" value="42" />
+			<property name="phase" value="38" />
 			<property name="min_distance" value="10" />
 			<property name="max_distance" value="12" />
 			<property name="entity_names" value="zombieArlene,zombieMarlene,zombiePartyGirl,zombieSteveFeral,
@@ -415,84 +331,115 @@
 			<property name="spawn_count" value="8" />
 			<property name="party_addition" value="1" />
 		</action>
-	  <!-- Phase 43 - Wait for It -->
+	  <!-- Phase 39 - Wait for It -->
 		<action class="Delay">
-	      <property name="phase" value="43" />
+	      <property name="phase" value="39" />
 		  <property name="time" value="45" />
 		</action>
-	  <!-- Phase 44 - Boss Wave 2 -->
+	  <!-- Phase 40 - Boss Wave 2 -->
 		<action class="SpawnEntity">
-		  <property name="phase" value="44" />
+		  <property name="phase" value="40" />
 		  <property name="min_distance" value="10" />
 		  <property name="max_distance" value="12" />
 		  <property name="entity_names" value="zombieArlene,zombieMarlene,zombiePartyGirl,zombieSteveFeral,
 		    zombieNurse,zombieJoeFeral,zombieMoe,zombieSoldierFeral,zombieSteveCrawler,zombieFatCop,zombieSoldier,
 			zombieFatHawaiian,zombieFatHawaiianFeral" param1="zombiename" />
-		  <property name="add_to_group" value="badGuys" />
+		  <property name="add_to_group" value="badGuys2" />
 		  <property name="spawn_count" value="8" />
 		  <property name="party_addition" value="1" />
 		</action>
-	  <!-- Phase 45 - Wait for It -->
+	  <!-- Phase 41 - Wait for It -->
 		<action class="Delay">
-	      <property name="phase" value="45" />
+	      <property name="phase" value="41" />
 		  <property name="time" value="45" />
 		</action>
-	  <!-- Phase 46 - Boss Wave 3 -->
-		<action class="SpawnEntity">
-		  <property name="phase" value="46" />
-		  <property name="min_distance" value="10" />
-		  <property name="max_distance" value="12" />
-		  <property name="entity_names" value="zombieArlene,zombieMarlene,zombiePartyGirl,zombieSteveFeral,
-		    zombieNurse,zombieJoeFeral,zombieMoe,zombieSoldierFeral,zombieSteveCrawler,zombieFatCop,zombieSoldier,
-			zombieFatHawaiian,zombieFatHawaiianFeral" param1="zombiename" />
-		  <property name="add_to_group" value="badGuys" />
-		  <property name="spawn_count" value="8" />
-		  <property name="party_addition" value="1" />
-		</action>
-      <!-- Phase 14 - Wait until all zombies from wave 1 are dead -->
+	  <!-- Phase 42 - Wait until all zombies from wave 1 are dead -->
 		<action class="WaitForDead">
-			<property name="phase" value="47" />
+			<property name="phase" value="42" />
 			<property name="target_group" value="badGuys" />
+			<property name="phase_on_despawn" value="52" /><!-- will be changed later to last phase -->
+		</action>
+	  <!-- Phase 43 - Boss Wave 3 -->
+		<action class="SpawnEntity">
+		  <property name="phase" value="43" />
+		  <property name="min_distance" value="10" />
+		  <property name="max_distance" value="12" />
+		  <property name="entity_names" value="zombieArlene,zombieMarlene,zombiePartyGirl,zombieSteveFeral,
+		    zombieNurse,zombieJoeFeral,zombieMoe,zombieSoldierFeral,zombieSteveCrawler,zombieFatCop,zombieSoldier,
+			zombieFatHawaiian,zombieFatHawaiianFeral" param1="zombiename" />
+		  <property name="add_to_group" value="badGuys2" />
+		  <property name="spawn_count" value="8" />
+		  <property name="party_addition" value="1" />
+		</action>
+      <!-- Phase 44 - Wait until all zombies are dead -->
+		<action class="WaitForDead">
+			<property name="phase" value="44" />
+			<property name="target_group" value="badGuys2" />
+			<property name="phase_on_despawn" value="52" /><!-- will be changed later to last phase -->
+		</action>
+	  <!-- Phase 45 - Wait until all zombies are dead -->
+		<action class="CallGameEvent">
+			<property name="phase" value="45" />
+			<property name="game_events" value="vote_h_rwight_immortal_m " />
+		</action>
+	  <!-- Phase 46 - Wait until all zombies are dead -->
+		<action class="WaitForDead">
+			<property name="phase" value="46" />
+			<property name="target_group" value="minions" />
 			<property name="phase_on_despawn" value="52" /><!-- will be changed later to last phase -->
 			<property name="kill" value="animalWolfFriend" param1="zombiename"/>
 		</action>
-	  <!-- Phase 47 - last phase -->
+	  <!-- Phase 47 - Wait until all zombies are dead -->
+		<action class="WaitForDead">
+			<property name="phase" value="47" />
+			<property name="target_group" value="boss" />
+			<property name="phase_on_despawn" value="52" /><!-- will be changed later to last phase -->
+			<property name="kill" value="animalBigWolfFriend" param1="zombiename"/>
+		</action>
+	  <!-- Phase 48 - last phase -->
 		<action class="PlaySound">
 		  <property name="phase" value="48" />
 		  <property name="sound" value="twitch_vote_horde_success" />
 		  <property name="inside_head" value="true" />
 		  <property name="target_group" value="goodGuys" />
 		</action>
-	  <!-- Phase 48 -  Let them know. -->
+	  <!-- Phase 49 -  Let them know. -->
 	    <action class="BeltTooltip">
 		  <property name="phase" value="49" />
 		  <property name="text" value="Congrats!! You Successfully Completed The Test Version Of SumCornl3read. Please Reach out If You Would Like To See Anything Change! Enjoy Your Spoils!" />
-		  <property name="sound" value="twitch_kaboom" />
-		  <property name="sound" value="twitch_reverse" />
+		  <property name="sound" value="twitch_kaboom"/>
 		</action>
-	  </action_sequence>
-	  <!-- Phase 31 - Wait A Damn Second -->
+
+	  <!-- Phase 50 - Wait A Damn Second -->
 		<action class="SpawnContainer">
 			<property name="phase" value="50" />
 			<property name="target_group" value="goodGuys" />
 			<property name="entity_names" value="TwitchAction_SupplyWeapon4,
 			    TwitchAction_SupplyMedicine3,TwitchAction_SupplyAmmo3,TwitchAction_SupplyAmmo4" param1="cratename" />
-			<property name="spawn_count" value="8" param1="spawncount" />
+			<property name="spawn_count" value="6" param1="spawncount" />
 			<property name="min_distance" value="5" />
-			<property name="max_distance" value="12" />
+			<property name="max_distance" value="9" />
 			<property name="safe_spawn" value="true" />
 			<property name="spawn_from_position" value="true" />
 		</action>
-	  <!-- Phase 43 - Wait for It -->
+	  <!-- Phase 51 - Wait for It -->
 		<action class="Delay">
 	      <property name="phase" value="51" />
-		  <property name="time" value="20" />
+		  <property name="time" value="90" />
 		</action>
-	  <!-- Final -->
-	  <action class="Teleport">
-		<property name="phase" value="52" />
-		<property name="target_position" value="0, 350, 0" />
-		<property name="offset_type" value="None" />
-	  </action>
+	  <!-- Phase 49 -  Let them know. -->
+	    <action class="BeltTooltip">
+		  <property name="phase" value="49" />
+		  <property name="text" value="Congrats!! You Successfully Completed The Test Version Of SumCornl3read. Please Reach out If You Would Like To See Anything Change! Enjoy Your Spoils!" />
+		  <property name="sound" value="twitch_kaboom"/>
+		</action>
+	  <!-- Phase 50 - Final -->
+		  <action class="Teleport">
+			<property name="phase" value="50" />
+			<property name="target_position" value="0, 80, 0" />
+			<property name="offset_type" value="None" />
+		  </action>
+	 </action_sequence>
+
   </append><!-- FIN - MFKN~Corn~l3read -->
 </configs>
