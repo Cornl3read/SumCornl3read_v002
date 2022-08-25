@@ -13,6 +13,7 @@
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Blur" intensity="1" fade="4"/>
             	<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="@cornLickerDuration" operation="set" value="180"/>
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="@cornLickerDisplay" operation="set" value="@cornLickerDuration"/>
+				<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="mad_Xp"/>
 			</effect_group>
 			<!-- update group - loop runs once per tick  -->
 			<effect_group>
@@ -31,24 +32,8 @@
 			</effect_group>
 			<!-- Middle Group - Loops once after each tick and after DONE group on 0 tick -->
 			<effect_group>
-				<!-- Player Physical Buffs -->
-				<passive_effect name="EntityDamage" operation="perc_add" value="5"><!-- Git Strong -->
-					<requirement name="HoldingItemHasTags" tags="melee"/>
-				</passive_effect>
-				<!-- Why not flip the controls to make them feel really drunk. GL with that.
+				<!-- Why not flip the controls to make them feel really drunk. GL with that.-->
 				<passive_effect name="FlipControls" operation="base_set" value="1" />
-				-->
-				<passive_effect name="RunSpeed" operation="perc_add" value=".3"/>
-				<passive_effect name="HealthChangeOT" operation="base_add" value="25"/>
-				<passive_effect name="GeneralDamageResist" operation="base_add" value="0.65"/>
-				<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.8"/>
-				<passive_effect name="BuffResistance" operation="base_add" value="0.8" tags="buffInjuryStunned00,buffInjuryStunned01,buffInjuryStunned01Shotgun,buffInjuryStunned02,buffInjuryStunned02Shotgun,buffInjuryStunned03,buffInjuryStunned03Shotgun"/>
-				<passive_effect name="FoodLossPerHealthPointGained" operation="base_set" value="0" />
-
-				<!-- Damage Modifiers -->
-				<passive_effect name="DamageModifier" operation="perc_add" value=".75" tags="wood"/>
-				<passive_effect name="DamageModifier" operation="perc_add" value=".75" tags="earth"/>
-				<passive_effect name="DamageModifier" operation="perc_add" value=".75" tags="stone"/>
 
 				<!-- Increase Harvesting for Mining-->
 				<passive_effect name="HarvestCount" operation="perc_add" value=".5" tags="oreWoodHarvest">
@@ -64,14 +49,10 @@
 				<passive_effect name="CarryCapacity" operation="base_set" value="50"/>
 
 				<!-- Increase Bartering slightly higher than buffDrunkGrandpasAwesomeSauce -->
-				<passive_effect name="BarteringBuying" operation="base_add" value=".3"/>
-				<passive_effect name="BarteringSelling" operation="base_add" value=".3"/>
+				<passive_effect name="BarteringBuying" operation="base_add" value=".5"/>
+				<passive_effect name="BarteringSelling" operation="base_add" value=".5"/>
 
-				<!-- Ranged Too
-				<passive_effect name="EntityDamage" operation="perc_add" value=".5" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkArchery,admin"/>
- 				-->
 				<!-- Do The Damn Thing -->
-
 				<triggered_effect trigger="onSelfDied" action="ModifyScreenEffect" effect_name="Hot1" intensity="0" fade="4"/>
 				<triggered_effect trigger="onSelfDied" action="ModifyScreenEffect" effect_name="Drunk" intensity="0" fade="4"/>
 				<triggered_effect trigger="onSelfDied" action="ModifyScreenEffect" effect_name="Blur" intensity="0" fade="4"/>
@@ -80,7 +61,7 @@
 				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" effect_name="Hot1" intensity="0" fade="4"/>
 				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" effect_name="Blur" intensity="0" fade="4"/>
 
-				<triggered_effect trigger="onSelfBuffRemove" action="CallGameEvent" event="mad_Xp"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="CallGameEvent" event="cornLickerEvent"/>
 			</effect_group>
 	    </buff>
     </append>
