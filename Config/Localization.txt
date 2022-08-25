@@ -1,11 +1,11 @@
 Key,File,Type,UsedInMainMenu,NoTranslate,english
 
-buffDrunkOnCornDesc,buffs,Buff,,,You Too Can Be One with the corn.\n+50% melee and ranged damage.\n+75% stamina recovery\n80% Stun Resistance\n+65% damage resistance\n+25 health.\n+50% harvest amount\n+50% salvage amount \n100% inventory unlock\n+30% buying and selling.
+buffDrunkOnCornDesc,buffs,Buff,,,You Too Can Be One with the corn. \n May cause: \n A drunken stupor. \n Reversed Controls \n Blurred or double vision. \n +50% Bartering \n Increased Harvest. \n Increased Carry Capacity. \n You To Wake Up Fighting for Your Life.
 buffDrunkOnCornName,buffs,Buff,,,One With The Corn
 buffDrunkOnCornTooltip,buffs,Buff,,,You are now one with the corn. \n You are also Plastered \n Good Luck With That.
 
 cornLickerName,items,Item,,,Cornl3reads Homegrown Shine
-cornLickerDesc,buffs,Buff,,,Become one with the corn.\n+50% melee and ranged damage.\n+75% stamina recovery\n80% Stun Resistance\n+65% damage resistance\n+25 health.\n+50% harvest amount\n+50% salvage amount \n100% inventory unlock\n+30% buying and selling.\n+30%run speed\nGo Get Ya Corn On!
+cornLickerDesc,buffs,Buff,,,Become one with the corn. \n May cause: \n A drunken stupor. \n Reversed Controls \n Blurred or double vision. \n +50% Bartering \n Increased Harvest. \n Increased Carry Capacity. \n You To Wake Up Fighting for Your Life.
 
 
 TwitchAction_SpawnWolfFriendCommand,twitch,Actions,,,#spawn_sidekick
@@ -28,7 +28,7 @@ TwitchAction_ThunderdomeCommand,twitch,Actions,,,#thunderdome
 TwitchAction_Thunderdome,twitch,Actions,,,thunderdome
 TwitchAction_Thunderdome,twitch,Actions,,,Thunderdome with friends.
 
-noteHeyThereDesc,items,Item,,, Hey! Thanks for reading this. First you should take some time to gather your thoughts. You were provided some supplies in the starter bundle on your hotbar to get you going in a hurry. Open it up but don't drink the CornLicker until you are ready to die. You will have 3 minutes to prepare after drinking it so BE CAREFUL. Make sure to check your inventory often for new items. Good Luck-Cornl3read
+noteHeyThereDesc,items,Item,,, Hey! You were provided some supplies in the starter bundle on your hot bar to get you going in a hurry. Open it up but don't drink the CornLicker until you are ready to FIGHT. You will have 3 minutes to prepare after drinking it so BE CAREFUL. Make sure to check your inventory often for new items. Good Luck-Cornl3read
 
 
 
