@@ -1,0 +1,68 @@
+<configs>
+    <append xpath="/buffs">
+		<buff name="buffDrunkOnCorn" name_key="buffDrunkOnCornName" description_key="buffDrunkOnCornDesc" tooltip_key="buffDrunkOnCornTooltip" icon="ui_game_symbol_beer" icon_color="56, 245, 245">
+			<stack_type value="replace"/>
+			<display_value_key value="buffDrunkOnCornName"/>
+			<duration value="180"/>
+			<display_value value="@cornLickerDisplay"/>
+			<display_value_format value="time"/>
+			<effect_group>
+			<!-- Start Group -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Drunk" intensity="1" fade="4"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Hot1" intensity="1" fade="4"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Blur" intensity="1" fade="4"/>
+            	<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="@cornLickerDuration" operation="set" value="180"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="@cornLickerDisplay" operation="set" value="@cornLickerDuration"/>
+				<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="mad_Xp"/>
+			</effect_group>
+			<!-- update group - loop runs once per tick  -->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="@cornLickerDuration" operation="add" value="-1"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="@cornLickerDisplay" operation="set" value="@cornLickerDuration"/>
+			</effect_group>
+			<!-- Done group - loop runs each tick and at the beginning of the 0 tick  -->
+			<effect_group>
+				<!-- check for 0 tick -->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrunkOnCorn">
+					<requirement name="CVarCompare" cvar="@cornLickerDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<!-- Reset Cvars -->
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="@cornLickerDuration" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="@cornLickerDisplay" operation="set" value="0"/>
+			</effect_group>
+			<!-- Middle Group - Loops once after each tick and after DONE group on 0 tick -->
+			<effect_group>
+				<!-- Why not flip the controls to make them feel really drunk. GL with that.-->
+				<passive_effect name="FlipControls" operation="base_set" value="1" />
+
+				<!-- Increase Harvesting for Mining-->
+				<passive_effect name="HarvestCount" operation="perc_add" value=".5" tags="oreWoodHarvest">
+					<requirement name="HoldingItemHasTags" tags="perkMiner69r"/>
+				</passive_effect>
+
+				<!-- Increase Harvesting for Salvaging -->
+				<passive_effect name="HarvestCount" operation="perc_add" value=".5" tags="salvageHarvest">
+					<requirement name="HoldingItemHasTags" tags="perkMiner69r"/>
+				</passive_effect>
+
+				<!-- Unlimited carry too -->
+				<passive_effect name="CarryCapacity" operation="base_set" value="50"/>
+
+				<!-- Increase Bartering slightly higher than buffDrunkGrandpasAwesomeSauce -->
+				<passive_effect name="BarteringBuying" operation="base_add" value=".5"/>
+				<passive_effect name="BarteringSelling" operation="base_add" value=".5"/>
+
+				<!-- Do The Damn Thing -->
+				<triggered_effect trigger="onSelfDied" action="ModifyScreenEffect" effect_name="Hot1" intensity="0" fade="4"/>
+				<triggered_effect trigger="onSelfDied" action="ModifyScreenEffect" effect_name="Drunk" intensity="0" fade="4"/>
+				<triggered_effect trigger="onSelfDied" action="ModifyScreenEffect" effect_name="Blur" intensity="0" fade="4"/>
+
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" effect_name="Drunk" intensity="0" fade="4"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" effect_name="Hot1" intensity="0" fade="4"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" effect_name="Blur" intensity="0" fade="4"/>
+
+				<triggered_effect trigger="onSelfBuffRemove" action="CallGameEvent" event="cornLickerEvent"/>
+			</effect_group>
+	    </buff>
+    </append>
+</configs>

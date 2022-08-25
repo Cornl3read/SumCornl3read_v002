@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Servers>
+
+    <ServerGroup Name="Cornl3read" Logo="https://imgur.com/joxnGYk" Description="">
+        <Server Name="SumCornl3read_v1" Logo="https://imgur.com/joxnGYk">
+            <Description>
+            This mod adds two new items (PackageFromCornl3read|Craftable and Corn Licker |Not Craftable) to the game.
+                This mod is intended to get players into the fight quickly on new worlds or to add an event option to
+                the everyday grind.
+                Simply open the package, setup your items, drink the corn licker, and FIGHT. Have fun!!
+            </Description>
+            <Version>Version 1.01</Version>
+            <Discord>https://discord.gg/4ahH4dRm</Discord>
+            <Donate>https://www.buymeacoffee.com/cornl3read</Donate>
+            <RSS/>
+                <Excludes>
+                    <Exclude>7DaysToDieServer_Data\</Exclude>
+                    <Exclude>\obj\</Exclude>
+                    <Exclude>\bin\</Exclude>
+                </Excludes>
+            <ReleaseNotes/>
+            <DownloadMode>Clone</DownloadMode>
+            <Downloads>
+                <Download>https://github.com/Cornl3read/SumCornl3read_v002</Download>
+            </Downloads>
+        </Server>
+    </ServerGroup>
+</Servers>
