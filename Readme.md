@@ -15,10 +15,10 @@ MageJosh - Testing, debugging, and magical magicness
 Khaine - For the Snippet That Pushed Me Forward When I Was Stuck.
 
 Special thanks To:
-FrostiBoi - You Started All This
-Gun - You Taught Me The Baby Steps
-Everyone in the DF and Guppy Discord that have pushed me to keep trying. 
-Thanks Guys And Gals.
+FrostiBoi - You Started All This | 
+Gun - You Taught Me The Baby Steps | 
+Everyone in the DF and Guppy Discord that have pushed me to keep trying. | 
+Thanks Guys And Gals. 
 
 To the streamers that I have come to call family. 
 Thank You Guys. Nothing more to be said. 
