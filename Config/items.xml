@@ -12,7 +12,6 @@
 			<property name="EconomicValue" value="42069"/>
 			<property name="DescriptionKey" value="cornLickerDesc"/>
 			<property name="Group" value="Food/Cooking,CFDrink/Cooking"/>
-			<property name="UnlockedBy" value="perkMasterChef,PackageFromCornl3readSchematic"/>
 			<property class="Action0">
 				<property name="Class" value="Eat"/>
 				<property name="Delay" value="1"/>
@@ -75,7 +74,6 @@
 			<property name="CustomIcon" value="woodFrameBlock"/>
 			<property name="ItemTypeIcon" value="bundle"/>
 			<property name="CustomIconTint" value="#38f5f5"/>
-			<property name="UnlockedBy" value="perkMasterChef,PackageFromCornl3readSchematic"/>
 			<property class="Action0">
 				<property name="Create_item" value="ammoJunkTurretRegular,foodCornBread,drinkYuccaJuiceSmoothie,CornLicker,casinoCoin,gunMGT3M60,gunShotgunT2PumpShotgun,ammoShotgunShell,resourceRepairKit,ammo762mmBulletAP,gunRifleT3SniperRifle,gunHandgunT3SMG5,ammo9mmBulletAP,meleeWpnBladeT1HuntingKnife,vehicleBicyclePlaceable,medicalFirstAidKit,armorIronHelmet,modArmorHelmetLight,armorIronBoots,armorIronLegs,armorIronGloves,armorIronChest"/>
 				<property name="Create_item_count" value="1000,10,10,1,9999,1,1,600,20,450,1,1,900,1,1,5,1,1,1,1,1,1,1,1,1"/>
