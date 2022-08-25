@@ -3,6 +3,11 @@
     <!-- Starter Bundle -->
     <append xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='ItemsOnEnterGame.GameModeSurvival']/@value"
     >,PackageFromCornl3read</append>
+    <append xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='ItemsOnEnterGame.GameModeSurvivalSP']/@value"
+    >,PackageFromCornl3read</append>
+    <append xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='ItemsOnEnterGame.GameModeSurvivalMP']/@value"
+    >,PackageFromCornl3read</append>
+
 
     <append xpath="/entity_classes">
       <!-- animalWolfFriend -->
