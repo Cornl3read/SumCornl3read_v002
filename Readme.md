@@ -1,4 +1,5 @@
-First Unstable release including 1 event and 2 new items. 
+SumCornl3read v1.01 - Package now craftable
+First Stable release including 1 event and 2 new items. 
 
 Just unzip, stick in Mods, and Enjoy.
 
