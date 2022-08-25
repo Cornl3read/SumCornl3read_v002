@@ -7,5 +7,12 @@
             <ingredient name="foodCornBread" count="4"/>
             <ingredient name="drinkJarBeer" count="5"/>
         </recipe>
+        <recipe name="CornLicker" count="1" craft_area="campfire" tags="perkMasterChef,learnable">
+            <ingredient name="foodCropGraceCorn" count="3"/>
+            <ingredient name="foodCropCorn" count="10"/>
+            <ingredient name="foodCornOnTheCob" count="15"/>
+            <ingredient name="foodCornBread" count="4"/>
+            <ingredient name="drinkJarBeer" count="5"/>
+        </recipe>
     </append>
 </configs>
